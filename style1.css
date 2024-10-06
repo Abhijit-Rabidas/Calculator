@@ -1,0 +1,58 @@
+
+    body {
+        background-color: rgb(140, 82, 255);
+        text-align: center;
+    }
+
+    .container {
+        border-style: groove;
+        background-color: #fff;
+        width: 355px;
+        height: 490px;
+        margin: auto;
+        border-radius: 40px;
+    }
+    #delete{
+        background-color: rgb(240, 97, 97);
+    }
+    #cl{
+        background-color: green;
+    }
+    input {
+        width: 280px;
+        height: 60px;
+        border-radius: 12px;
+        font-size: 35px;
+        box-shadow: inset 6px 6px 13px #fff,
+                    inset -6px -6px 13px rgba(0, 0, 0, 0.16);
+        background-color: #cacaca;
+        text-align: end;
+        margin-top: 10px;
+        border: none;
+    }
+
+    table {
+        margin: auto;
+    }
+
+    button {
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
+        font-family: sans-serif;
+        transition: transform .2s;
+        background-color: #ecf0f3;
+
+        box-shadow: 6px 6px 13px #fff,
+                    -6px -6px 13px rgba(0,0,0,.16);
+        border: none;
+        border-radius: 50%;
+        margin: 5px;
+
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        color: aqua;
+        background-color: black;
+    }

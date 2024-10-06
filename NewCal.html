@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: rgb(140, 82, 255);
+            text-align: center;
+        }
+
+        .container {
+            border-style: groove;
+            background-color: #fff;
+            width: 355px;
+            height: 490px;
+            margin: auto;
+            border-radius: 15px;
+
+            box-shadow: inset 6px 6px 13px #fff,
+                inset -6px -6px 13px rgba(0, 0, 0, .16);
+        }
+
+        #delete {
+            background-color: rgb(240, 97, 97);
+        }
+
+        #cl {
+            background-color: green;
+        }
+
+        input {
+            width: 280px;
+            height: 60px;
+            border-radius: 5px;
+            font-size: 35px;
+            box-shadow: inset 6px 6px 13px #fff,
+                inset -6px -6px 13px rgba(0, 0, 0, 0.16);
+            background-color: #cfcfcf;
+            text-align: end;
+            margin-top: 10px;
+            border: groove;
+        }
+
+        table {
+            margin: auto;
+        }
+
+        button {
+            width: 60px;
+            height: 60px;
+            font-size: 25px;
+            font-family: sans-serif;
+            transition: transform .2s;
+            background-color: #ecf0f3;
+
+            box-shadow: 6px 6px 13px #fff,
+                -6px -6px 13px rgba(0, 0, 0, .16);
+            border: none;
+            border-radius: 50%;
+            margin: 5px;
+
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            color: aqua;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <input type="text" id="input"> <br><br>
+        <table>
+            <tr>
+                <td><button onclick="op('^')">^</button></td>
+                <td><button id="cl" onclick="clearr()">CL</button></td>
+                <td><button id="delete" onclick="del()">DEL</button></td>
+                <td><button onclick="op('/')">/</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="display('7')">7</button></td>
+                <td><button onclick="display('8')">8</button></td>
+                <td><button onclick="display('9')">9</button></td>
+                <td><button onclick="op('x')">x</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="display('4')">4</button></td>
+                <td><button onclick="display('5')">5</button></td>
+                <td><button onclick="display('6')">6</button></td>
+                <td><button onclick="op('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="display('1')">1</button></td>
+                <td><button onclick="display('2')">2</button></td>
+                <td><button onclick="display('3')">3</button></td>
+                <td><button onclick="op('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="display('0')">0</button></td>
+                <td><button onclick="display('.')">.</button></td>
+                <td><button onclick="op('%')">%</button></td>
+                <td><button onclick="calculate('=')">=</button></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        let input = document.getElementById("input");
+        let fn, sn, res, operator;
+
+        function display(num) {
+            input.value = input.value + num;
+        }
+        function op(o) {
+            operator = o;
+            input.value = input.value + operator;
+        }
+        function clearr() {
+            input.value = "";
+        }
+        function del() {
+            input.value = input.value.slice(0, -1);
+        }
+
+        function calculate() {
+
+            let st = input.value;
+
+            if (operator == "+") {
+                let sp = st.split("+");
+
+                fn = sp[0];
+                sn = sp[1];
+
+                fn = Number(fn);
+                sn = Number(sn);
+                res = fn + sn;
+
+                input.value = "";
+                input.value = res;
+            }
+            else if (operator == "-") {
+                let sp = st.split("-");
+
+                fn = sp[0];
+                sn = sp[1];
+
+                fn = Number(fn);
+                sn = Number(sn);
+                res = fn - sn;
+
+                input.value = "";
+                input.value = res;
+            }
+            else if (operator == "x") {
+                let sp = st.split("x");
+
+                fn = sp[0];
+                sn = sp[1];
+
+                fn = Number(fn);
+                sn = Number(sn);
+                res = fn * sn;
+
+                input.value = "";
+                input.value = res;
+            }
+            else if (operator == "/") {
+                let sp = st.split("/");
+
+                fn = sp[0];
+                sn = sp[1];
+
+                fn = Number(fn);
+                sn = Number(sn);
+                res = fn / sn;
+
+                input.value = "";
+                input.value = res;
+            }
+            else if (operator == "%") {
+                let sp = st.split("%");
+
+                fn = sp[0];
+                sn = sp[1];
+
+                fn = Number(fn);
+                sn = Number(sn);
+                res = (sn * fn) / 100;
+
+                input.value = "";
+                input.value = res;
+            }
+            else {
+                let sp = st.split("^");
+
+                fn = sp[0];
+                sn = sp[1];
+
+                fn = Number(fn);
+                sn = Number(sn);
+                // res = fn**sn;
+                res = Math.pow(fn, sn);
+
+                input.value = "";
+                input.value = res;
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
